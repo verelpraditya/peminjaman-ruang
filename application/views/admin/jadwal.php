@@ -1,11 +1,30 @@
 <?php
-$jadwal = $this->db->query("SELECT * FROM jadwal INNER JOIN peminjaman on jadwal.id_peminjaman=peminjaman.id_peminjaman INNER JOIN user on peminjaman.id_user=user.id_user INNER JOIN ruangan on peminjaman.id_ruangan = ruangan.id_ruangan AND status_jadwal!=3")->result();
+while (true) {
+    $jadwal = $this->db->query("SELECT * FROM jadwal INNER JOIN peminjaman on jadwal.id_peminjaman=peminjaman.id_peminjaman INNER JOIN user on peminjaman.id_user=user.id_user INNER JOIN ruangan on peminjaman.id_ruangan = ruangan.id_ruangan AND status_jadwal!=3")->result();
 
-function aturjadwal($nowtime, $dbstart, $dbend, $id_jadwal)
-{
-    if ($nowtime >= $dbstart and $nowtime <= $dbend) {
-        redirect('admin/hapusjadwal/1/' . $id_jadwal, 'refresh');
+    function aturjadwal($nowtime, $dbstart, $dbend, $id_jadwal)
+    {
+        if ($nowtime >= $dbstart and $nowtime <= $dbend) {
+            redirect('admin/hapusjadwal/1/' . $id_jadwal, 'refresh');
+        }
     }
+
+    // Looping untuk setiap data jadwal
+    foreach ($jadwal as $q) {
+        $nowtime = strtotime(date('H:i:s')) + strtotime(date('Y-m-d'));
+        $dbstart = strtotime($q->jam_mulai) + strtotime($q->tanggal);
+        $dbend = strtotime($q->jam_berakhir) + strtotime($q->tanggal);
+        $id_jadwal = $q->id_jadwal;
+        // Jika jam sekarang sudah melebihi jam berakhir
+        if ($dbend < $nowtime) {
+            // Ubah status_jadwal menjadi 3
+            $this->db->update('ruangan', ['status_ruangan' => 'Nganggur'], ['id_ruangan' => $q->id_ruangan]);
+            $this->db->update('jadwal', ['status_jadwal' => 3], ['id_jadwal' => $id_jadwal]);
+        }
+    }
+
+    // Tunggu selama 1 menit sebelum looping kembali
+    sleep(60);
 }
 ?>
 <div class="content-wrapper">

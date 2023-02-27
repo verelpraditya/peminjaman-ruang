@@ -331,52 +331,52 @@
             </div>
             <div class="modal-body">
                 <p>
-                    <form role="form" action="" method="POST" enctype="multipart/form-data">
-                        <div class="card-body">
-                            <input type="hidden" name="id_user" value="<?php if (isset($user)) {
-                                                                            echo $user;
-                                                                        } ?>">
-                            <div class="form-group">
-                                <label>Username</label>
-                                <input type="text" name="username" disabled class="form-control" value="<?php if (isset($username)) {
-                                                                                                            echo $username;
-                                                                                                        } ?>" required="">
-                            </div>
-                            <div class="form-group">
-                                <label>Ruangan</label>
-                                <select name="id_ruangan" class="form-control">
-                                    <?php
-                                    $ruangan2 = $this->m_siplabs->get_data('ruangan')->result();
-                                    foreach ($ruangan2 as $r2) : ?>
-                                        <option value="<?php echo $r2->id_ruangan ?>"><?php echo $r2->kode_ruangan ?> - <?php echo $r2->nama_ruangan ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Jam Mulai</label>
-                                <input type="time" name="jam_mulai" class="form-control" value="08:00">
-                            </div>
-                            <div class="form-group">
-                                <label>Jam Selesai</label>
-                                <input type="time" name="jam_berakhir" class="form-control" value="08:50">
-                            </div>
-                            <div class="form-group">
-                                <label>Tanggal</label>
-                                <input type="date" name="tanggal" class="form-control" value="<?php echo date('Y-m-d'); ?>">
-                            </div>
-                            <div class="form-group">
-                                <label>Keterangan Peminjaman</label>
-                                <select name="keterangan" id="keterangan" class="form-control">
-                                    <option value="Seminar">Seminar</option>
-                                    <option value="OSIS">OSIS</option>
-                                    <option value="Rapat">Rapat</option>
-                                    <option value="Pelatihan/Workshop">Pelatihan/Workshop</option>
-                                    <option value="Kegiatan Kepemimpinan">Kegiatan Kepemimpinan</option>
-                                </select>
-                            </div>
+                <form role="form" action="" method="POST" enctype="multipart/form-data">
+                    <div class="card-body">
+                        <input type="hidden" name="id_user" value="<?php if (isset($user)) {
+                                                                        echo $user;
+                                                                    } ?>">
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" name="username" disabled class="form-control" value="<?php if (isset($username)) {
+                                                                                                        echo $username;
+                                                                                                    } ?>" required="">
                         </div>
-                        <!-- /.card-body -->
-                </p>
+                        <div class="form-group">
+                            <label>Ruangan</label>
+                            <select name="id_ruangan" class="form-control">
+                                <?php
+                                $ruangan2 = $this->m_siplabs->get_data('ruangan')->result();
+                                foreach ($ruangan2 as $r2) : ?>
+                                    <option value="<?php echo $r2->id_ruangan ?>"><?php echo $r2->kode_ruangan ?> - <?php echo $r2->nama_ruangan ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Jam Mulai</label>
+                            <input type="time" name="jam_mulai" class="form-control" value="08:00">
+                        </div>
+                        <div class="form-group">
+                            <label>Jam Selesai</label>
+                            <input type="time" name="jam_berakhir" class="form-control" value="08:50">
+                        </div>
+                        <div class="form-group">
+                            <label>Tanggal</label>
+                            <input type="date" name="tanggal" class="form-control" value="<?php echo date('Y-m-d'); ?>">
+                        </div>
+                        <div class="form-group">
+                            <label>Keterangan Peminjaman</label>
+                            <select name="keterangan" id="keterangan" class="form-control">
+                                <option value="Seminar">Seminar</option>
+                                <option value="OSIS">OSIS</option>
+                                <option value="Rapat">Rapat</option>
+                                <option value="Pelatihan/Workshop">Pelatihan/Workshop</option>
+                                <option value="Kegiatan Kepemimpinan">Kegiatan Kepemimpinan</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                    </p>
             </div>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>

@@ -48,7 +48,7 @@ $peminjaman = $this->db->query("SELECT * FROM peminjaman INNER JOIN user, ruanga
                                     <td><?php echo substr($q->jam_mulai, 0, 5); ?></td>
                                     <td><?php echo substr($q->jam_berakhir, 0, 5); ?></td>
                                     <td><?php $date = date_create($q->tanggal);
-                                    echo date_format($date, 'd/m /Y'); ?></td>
+                                        echo date_format($date, 'd/m /Y'); ?></td>
                                     <td><?php echo $q->keterangan; ?></td>
                                     <td>
                                         <a href="<?php echo base_url('admin/accrequest/' . $q->id_peminjaman) ?>" onclick="return confirm('Terima Request?')" class="badge badge-primary">Terima Request</a>

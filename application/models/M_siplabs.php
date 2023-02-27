@@ -21,6 +21,7 @@ class M_siplabs extends CI_Model
 	{
 		return $this->db->get_where($table, $where);
 	}
+
 	public function add_data($table, $array)
 	{
 		return $this->db->insert($table, $array);

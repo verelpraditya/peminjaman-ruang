@@ -39,7 +39,7 @@ endforeach;
           <li class="nav-item">
             <a href="<?php echo base_url('peminjam/jadwal') ?>" class="nav-link">Jadwal</a>
           </li>
-        </ul>
+        </ul>
       </div>
 
       <!-- Right navbar links -->
@@ -127,11 +127,11 @@ endforeach;
           <?php endforeach; ?>
 
           <!-- FITUR BOOKING -->
-          
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
+
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content -->
     </div>
-    <!-- /.content -->
   </div>
-</div>
-<!-- ./wrapper -->
+  <!-- ./wrapper -->
